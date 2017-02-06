@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Lab 1: Twiter Ticker</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		#names {
+			padding-left: 20px;
+		}
+		#tweets {
+			padding: 0;
+			width: auto;
+			display: inline-block;
+		}
+		ul {
+			display: inline-block
+			*display: inline;
+			zoom: 1;
+			float: left;
+			overflow: hidden;
+		}
+		li {
+			height: 100px;
+			display: inline;
+		}
+	</style>
+  </head>
+  <body>
+    <h1>Graigor's Tweet Ticker</h1>
+	<ul id="names" style="list-style-type:none" class="list-group">
+		<li id="fifth_name" class="list-group-item"></li>
+		<li id="fourth_name" class="list-group-item"></li>
+		<li id="third_name" class="list-group-item"></li>
+		<li id="second_name" class="list-group-item"></li>
+		<li id="first_name" class="list-group-item"></li>
+	</ul>	
+
+
+	<ul id="tweets" style="list-style-type:none">
+  		<li class="list-group-item"><p id="fifth_tweet" class="list-group-item-text"></p></li>
+  		<li class="list-group-item"><p id="fourth_tweet" class="list-group-item-text"></p></li>
+  		<li class="list-group-item"><p id="third_tweet" class="list-group-item-text"></p></li>
+		<li class="list-group-item"><p id="second_tweet" class="list-group-item-text"></p></li>
+        <li class="list-group-item"><p id="first_tweet" class="list-group-item-text"></p></li>
+	</ul> 
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$.getJSON("tweets.json", function(data) {
+			console.log(data);
+			for (var d = 0; d < 95; d += 1) {
+				console.log(data[d]["text"]);
+				setTimeout( function (index) {
+					document.getElementById("first_tweet").innerHTML = data[index]["text"];
+					document.getElementById("second_tweet").innerHTML = data[index + 1]["text"];
+					document.getElementById("third_tweet").innerHTML = data[index + 2]["text"];
+					document.getElementById("fourth_tweet").innerHTML = data[index + 3]["text"];
+					document.getElementById("fifth_tweet").innerHTML = data[index + 4]["text"];
+				}, d * 1400, d);
+			
+			
+               
+                setTimeout( function (index) {
+                    document.getElementById("first_name").innerHTML = data[index]["user"]["name"] ? data[index]["user"]["name"] : "Anon User";
+                    document.getElementById("second_name").innerHTML = data[index + 1]["user"]["name"] ? data[index + 1]["user"]["name"] : "Anon User";
+                    document.getElementById("third_name").innerHTML = data[index + 2]["user"]["name"] ? data[index + 2]["user"]["name"] : "Anon User";
+                    document.getElementById("fourth_name").innerHTML = data[index + 3]["user"]["name"] ? data[index + 3]["user"]["name"] : "Anon User";
+                    document.getElementById("fifth_name").innerHTML = data[index + 4]["user"]["name"] ? data[index + 4]["user"]["name"] : "Anon User";
+                }, d * 1470, d);
+        	}
+
+		});
+	</script>
+  </body>
+</html>
