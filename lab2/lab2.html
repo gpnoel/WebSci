@@ -8,47 +8,56 @@
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="weather-icons-master/css/weather-icons.min.css" rel="stylesheet">
+		<link href="weather-icons-master/css/weather-icons-wind.min.css" rel="stylesheet">
+		<link href="lab2.css" rel="stylesheet">
 	<style>
 	</style>
   </head>
   <body>
-    <h1>Graigor's Weather Forecast</h1>
+	<div class="jumbotron text-center">
+		<h1>Graigor's Weather Forecast</h1>
+	</div>
 	<div class="container">
+		<div class"row">
+			<div class="col-md-3">
+				<p id="current_date"></p>
+			</div>
+		</div>
 	  <div class="row">
-		<div class="col">
-		  1 of 2
+			<div class="col-md-3">
+				City: <span id="city_name"></span>
+			</div>
 		</div>
-		<div class="col">
-		  1 of 2
+		<div class="row">
+			<div class="col-md-3">
+				<p id="weather_description"></p>
+				<i id="weather_icon" class=""></i>
+			</div>
 		</div>
-	  </div>
+	</div>
+
+	<div id="forecast" class="container">
 	  <div class="row">
-		<div class="col">
-		  1 of 3
+			<div class="col-md-3">
+				<span id="forecast_date"></span>
+			</div>
+			<div class="col-md-3">
+				<span id="forecast_max"></span>
+			</div>
+			<div class="col-md-3">
+				<span id="forecast_min"></span>
+			</div>
+			<div class="col-md-3">
+				<span id="forecast_description" class=""></span><span id="forecast_image"></span>
+			</div>
 		</div>
-		<div class="col">
-		  1 of 3
-		</div>
-		<div class="col">
-		  1 of 3
-		</div>
-	  </div>
 	</div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-			console.log("hi");
-			var api = 'c2bcd1c3e60c65c85e8a2e95da3f9075';
-			// https://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=c2bcd1c3e60c65c85e8a2e95da3f9075
-			navigator.geolocation.getCurrentPosition(function (position) {
-				$.getJSON(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitutde}&lon=${position.coords.longitude}&appid=c2bcd1c3e60c65c85e8a2e95da3f9075`, function (data) {
-					console.log("hi");
-					console.log(data);
-				});
-			});
-	</script>
+		<script src="lab2.js" type="text/javascript"></script>
   </body>
 </html>
