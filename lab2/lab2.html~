@@ -34,14 +34,15 @@
 		</div>
 	  </div>
 	</div>
-	console.log(api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=c2bcd1c3e60c65c85e8a2e95da3f9075)
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
-		
+			$.getJSON("https://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=c2bcd1c3e60c65c85e8a2e95da3f9075", function (data) {
+				console.log(data);
+			});
 	</script>
   </body>
 </html>

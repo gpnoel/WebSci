@@ -40,7 +40,15 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
-			console.log(api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=c2bcd1c3e60c65c85e8a2e95da3f9075);
+			console.log("hi");
+			var api = 'c2bcd1c3e60c65c85e8a2e95da3f9075';
+			// https://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=c2bcd1c3e60c65c85e8a2e95da3f9075
+			navigator.geolocation.getCurrentPosition(function (position) {
+				$.getJSON(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitutde}&lon=${position.coords.longitude}&appid=c2bcd1c3e60c65c85e8a2e95da3f9075`, function (data) {
+					console.log("hi");
+					console.log(data);
+				});
+			});
 	</script>
   </body>
 </html>
