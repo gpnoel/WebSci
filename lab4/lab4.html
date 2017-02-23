@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- Initialize the app with ng-app directive -->
+<html ng-app="myApp">
+    <head>
+        <!-- Bootstrap tags-->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Lab 4 - Responsive Runescape App</title>    
+        <!-- Minified Bootstrap CSS -->
+        <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+
+        <link href="lab4.css" rel="stylesheet">    
+    </head>
+
+    <!-- Add our first controller (and only one for this demo) to our body tag -->
+    <!-- Without the controller, our Angular expressions and directives will basically be ignored  -->
+
+    <body ng-controller="mainController">
+        <div class="container">
+            <!-- Setup a panel for the button functionality -->
+            <div class="row">
+                <div ng-show="view==0" class="col-8 col-m-9">
+                    <h4>Custom Runescape API Utilizer!</h4>
+                </div>
+            </div>
+
+            <!-- When we click on a button, we set the view -->
+            <div class="row">
+                <div class="panel col-8 col-m-9">
+                    <button type="button" ng-click="view=0">Home</button>
+                    <button type="button" ng-click="view=1">Items</button>
+                </div>
+            </div>
+
+            <div ng-show="view==1" class="row">
+                <div class="col-8 col-m-9">
+                    <p>Item Search:</p>
+                    <p>You can enter a number (up to ~13,000) or the correct name of an item. If you don't know any items, I recommend trying out random numbers or 
+                        referring to the README for names/ids and viewing the results that way</p>
+                    <form ng-submit="searchItem()" class="row">
+                        <input type="text" ng-model="text">
+                        <input type="submit" value="Search">
+                    </form>
+                </div>
+                <div class="col-8 col-m-9">
+                    <img id="icon" src="" class="img-responsive img-rounded">
+                    <p id="name"></p>
+                    <p id="description"></p>
+                    <p id="price"></p>
+                    <span id="mems_text"></span><img id="members" src="" class="img-responsive img-circle">
+                </div>
+            </div>
+        </div>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Minified Bootstrap JS -->
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
+    <!-- AngularJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
+     
+    <script src="lab4.js" type="text/javascript"></script>
+    </body>
+</html>
