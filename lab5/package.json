@@ -1,0 +1,25 @@
+{
+  "name": "lab5_server",
+  "version": "1.0.0",
+  "description": "Lab 5 for Web Science Spring 2017",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gpnoel/WebSci.git"
+  },
+  "author": "Graigor Pierre-Noel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gpnoel/WebSci/issues"
+  },
+  "homepage": "https://github.com/gpnoel/WebSci#readme",
+  "dependencies": {
+    "express": "^4.14.1",
+    "socket.io": "^1.7.3",
+    "twitter": "^1.7.0"
+  }
+}

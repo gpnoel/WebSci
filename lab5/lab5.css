@@ -1,0 +1,19 @@
+#names {
+    padding-left: 20px;
+}
+#tweets {
+    padding: 0;
+    width: auto;
+    display: inline-block;
+}
+ul {
+    display: inline-block
+    *display: inline;
+    zoom: 1;
+    float: left;
+    overflow: hidden;
+}
+li {
+    height: 100px;
+    display: inline;
+}
