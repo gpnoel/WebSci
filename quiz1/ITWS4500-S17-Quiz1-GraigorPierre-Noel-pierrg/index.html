@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Quiz Server</title>
+  </head>
+  <body>
+    <form action="" id="zipform">
+      <input id="zip" autocomplete="off" /><button id="run">Run</button>
+    </form>
+    <button id="reset">Reset</button>
+    <div id="weather">
+        <p id="response"></p>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script type="text/javascript">
+        $("#zipform").submit(function(){
+            $.getJSON(`http://api.openweathermap.org/data/2.5/weather?zip=${$('#zip').val()},us&units=metric&appid=c2bcd1c3e60c65c85e8a2e95da3f9075`, function (data) {
+                console.log(data);
+                var temp = data.main.temp;
+                if (temp <= 0) {
+                    $("#response").text("The weather is freezing. *shivers");
+                    $("#response").css('color', 'blue');
+                } else if (temp > 0 && temp <= 10 ) {
+                    $("#response").text("The weather is cold. Brrr");
+                    $("#response").css('color', 'lightblue');
+                } else if (temp > 10 && temp <= 25 ) {
+                    $("#response").text("The weather is warm. Time to go outside");
+                    $("#response").css('color', 'yellow');
+                } else {
+                    $("#response").text("The weather is hot. Time for the beach");
+                    $("#response").css('color', 'red');
+                }
+            });
+            
+            return false;
+        });
+
+        $('#reset').click(function(){
+            location.reload();
+        });
+    </script>
+  </body>
+</html>
