@@ -1,0 +1,30 @@
+#names {
+    padding-left: 20px;
+}
+#tweets {
+    padding: 0;
+    width: auto;
+    display: inline-block;
+}
+ul {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    float: left;
+    overflow: hidden;
+    background: #3399ff;
+    padding: 20px;
+}
+body {
+    padding: 10px;
+}
+ul li {
+    background: #cce5ff;
+    margin: 5px;
+}
+#buttons {
+    padding: 10px;
+}
+#response {
+    margin: 5px;
+}

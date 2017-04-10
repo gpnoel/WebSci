@@ -1,0 +1,5 @@
+Graigor Pierre-Noel
+
+This lab was a little harder than lab 5 but once I got used to working with Mongo, it was easy to transition into the lab. I originally didn't bother checking the contents of my database so I had to flesh out the reading of tweets, saving the tweets to the databse, reading the tweets from the databse and displaying that on the screen, then I could go from there. So somewhat working blind but it was fine since I have some Mongo experience from working on this class's group project. Working with the xml parser was annoying. The documentation isn't explicitly clear on how to escape characters, so unsure if there is a better way for that. Working with Mongo was fun and nice to have lab experience with that.
+
+To run the lab, make sure that the mongo server is running. My lab will be using a database named "lab7". Then do `npm install` followed by `node server.js` and head to localhost:3000 to interact with the lab. The interface should be straightfoward enough to use. 
