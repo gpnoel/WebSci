@@ -1,0 +1,26 @@
+# source("C:/GitHub/WebSci/lab8/instructions.rdata")
+# Install the packages used in this lab
+#install.packages("igraph")
+#install.packages("dplyr")
+library(igraph)
+library(dplyr)
+rm(list=ls())
+
+# Read in the dataset
+infert <- read.table("C:/GitHub/WebSci/lab8/NewCodersSurveyData.csv", header=TRUE, sep=",")
+
+# Extract 100 edges from the dataset and remove the rows containing NA in any column
+edges <- head(distinct(infert, CountryLive, MonthsProgramming, Income), 100)
+edges <- edges[rowSums(is.na(edges)) == 0,]
+
+# Extract the nodes from the edges list
+nodes <- unique(c(as.character(edges$CountryLive), as.character(edges$MonthsProgramming)))
+nodes_frames <- data.frame(nodes, stringsAsFactors=FALSE)
+
+# Make the network and plot it. Set the layout of the graph so that edges touch each other
+# as few as possible
+net <- graph_from_data_frame(d=edges, vertices=nodes_frames, directed=F)
+E(net)$width <- E(net)$Income/20000
+layout <- layout_with_fr(net)
+plot(net, layout=layout, edge.arrow.size=.4, vertex.label=nodes, vertex.label.degree=-pi/2,
+        vertex.label.cex=.8, main="Relating Country with # of Months Programming to Income")
